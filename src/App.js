@@ -4,7 +4,7 @@ import { Server } from 'socket.io'
 import viewRouter from './routes/views.routes.js'
 
 const app = express()
-const PORT = 8080
+const PORT = 3000
 
 app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
@@ -26,9 +26,7 @@ app.use('/', viewRouter)
 
 socketServer.on('connection',(socket)=>{
     console.log('Nuevo cliente conectado')
-    // socket.on("message", (data) => {
-    //     console.log(data);
-    //   });
+    
     socket.on("newProduct", (data) => {
     console.log(data);
 
